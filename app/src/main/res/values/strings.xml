@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Veryable Coding Challenge</string>
     <string name="welcome_to_veryable_coding_challenge">Welcome To Veryable Coding Challenge</string>
+    <string name="accounts">Accounts</string>
+    <string name="card">Card: Instant</string>
+    <string name="bank">Bank Account: ACH - Same Day</string>
 </resources>
