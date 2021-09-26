@@ -15,21 +15,25 @@ class PayoutsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payouts_detail)
 
+        // Go back to PayoutsListActivity
         binding.backArrow.setOnClickListener {
             val intent = Intent(this@PayoutsDetailActivity, PayoutsListActivity::class.java)
             startActivity(intent)
         }
 
+        // Go back to PayoutsListActivity
         binding.doneButton.setOnClickListener {
             val intent = Intent(this@PayoutsDetailActivity, PayoutsListActivity::class.java)
             startActivity(intent)
         }
 
+        // Receives intent data
         val intent = intent
         val name = intent.extras!!.getString("name")
         val desc = intent.extras!!.getString("desc")
         val type = intent.extras!!.getString("type")
 
+        // Displays intent data
         binding.accountNameDetail.text = name
         binding.accountDescDetail.text = desc
         if (type == "card") {

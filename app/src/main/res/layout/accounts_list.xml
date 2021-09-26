@@ -23,7 +23,8 @@
                 android:id="@+id/account_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="2dp"/>
+                android:layout_marginStart="2dp"
+                app:tint="@color/dark_blue"/>
 
             <TextView
                 android:id="@+id/account_name"
@@ -32,7 +33,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@+id/account_icon"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Account Name"
                 android:textColor="#4A4A4A"
                 android:textSize="14sp" />
 
@@ -45,7 +45,6 @@
                 android:layout_marginTop="4dp"
                 android:layout_toEndOf="@+id/account_icon"
                 android:fontFamily="@font/roboto"
-                android:text="Account Desc"
                 android:textColor="#4A4A4A"
                 android:textSize="12sp" />
 
@@ -58,7 +57,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:textColor="#7E7E7E"
-                android:text="Account Type"
                 android:fontFamily="@font/roboto"
                 android:textSize="12sp" />
 

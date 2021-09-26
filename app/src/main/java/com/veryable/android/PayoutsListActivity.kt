@@ -22,23 +22,26 @@ class PayoutsListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payouts_list)
 
+        // Create Retrofit
         val retrofit = Retrofit.Builder()
             .baseUrl(baseURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+        // Create Service
         val service = retrofit.create(Service::class.java)
 
+        // Using coroutine to retrieve api response
         CoroutineScope(Dispatchers.IO).launch {
             val response = service.getAccounts()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val items = response.body()
-                    if (items != null) {
-                        binding.recyclerview.apply {
-                            layoutManager = LinearLayoutManager(this@PayoutsListActivity)
-                            adapter = AccountsListAdapter(this@PayoutsListActivity, items)
-                        }
+
+                    // Calling recyclerview adapter with list of accounts retrieved from response
+                    binding.recyclerview.apply {
+                        layoutManager = LinearLayoutManager(this@PayoutsListActivity)
+                        adapter = AccountsListAdapter(this@PayoutsListActivity, items!!)
                     }
                 } else {
                     Log.e("Error Fetching Data", response.code().toString())

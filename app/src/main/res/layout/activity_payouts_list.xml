@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".PayoutsListActivity"
-        android:background="#B7D5EA"
+        android:background="#D0E0EC"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
