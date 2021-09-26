@@ -4,4 +4,6 @@
     <string name="accounts">Accounts</string>
     <string name="card">Card: Instant</string>
     <string name="bank">Bank Account: ACH - Same Day</string>
+    <string name="details">Details</string>
+    <string name="done">Done</string>
 </resources>

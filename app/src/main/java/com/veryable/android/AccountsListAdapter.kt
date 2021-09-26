@@ -1,6 +1,7 @@
 package com.veryable.android
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,19 @@ class AccountsListAdapter(private val context: Context, private val accountList:
         var type: TextView = itemView.findViewById(R.id.account_type)
         var desc: TextView = itemView.findViewById(R.id.account_desc)
         var accounticon: ImageView = itemView.findViewById(R.id.account_icon)
+
+        init {
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    val intent = Intent(context, PayoutsDetailActivity::class.java)
+                    intent.putExtra("name", accountList[adapterPosition].name)
+                    intent.putExtra("desc", accountList[adapterPosition].desc)
+                    intent.putExtra("type", accountList[adapterPosition].type)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    context.startActivity(intent)
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
