@@ -16,7 +16,7 @@ class PayoutsDetailActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payouts_detail)
 
         // Go back to PayoutsListActivity
-        binding.backArrow.setOnClickListener {
+        binding.toolbarTopDetail.setNavigationOnClickListener {
             val intent = Intent(this@PayoutsDetailActivity, PayoutsListActivity::class.java)
             startActivity(intent)
         }

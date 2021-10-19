@@ -10,26 +10,17 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class PayoutsListActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityPayoutsListBinding
-    private var baseURL = "https://veryable-public-assets.s3.us-east-2.amazonaws.com"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payouts_list)
 
-        // Create Retrofit
-        val retrofit = Retrofit.Builder()
-            .baseUrl(baseURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        // Create Service
-        val service = retrofit.create(Service::class.java)
+        // Get Retrofit instance which is created in Service class
+        val service = Service.getInstance()
 
         // Using coroutine to retrieve api response
         CoroutineScope(Dispatchers.IO).launch {
